@@ -1,0 +1,17 @@
+<div class="card mt-3 mb-3 p-2" style="height: 550px;">
+    <div class="imgCard" routerLink="/details/{{data.id}}">
+        <img src="{{data.image}}" class="card-img-top bg-secondary bg-opacity-10 p-1" style="width: 100%; height: 300px; border-radius: 15px;">
+    </div>
+    <div class="card-body" routerLink="/details/{{data.id}}">
+        <h6 class="card-title">{{data.title}}</h6>
+        <p class="card-text" style="font-size: small;">{{data.description}}</p>
+    </div>
+    <div class="d-flex justify-content-between p-2">
+        <button class="btn" style="background-color: #E57C48; color: white;" *ngIf="!buttonAdd" (click)="buttonAdd = true">Add to cart</button>
+        <div class="input-group w-50"  *ngIf="buttonAdd">
+            <input type="number" class="form-control" [(ngModel)]="amount">
+            <button class="btn" style="background-color: #E57C48; color: white;" (click)="add()" (click)="buttonAdd = false">Add</button>
+        </div>
+        <span class="bg-dark bg-opacity-25 rounded p-1">{{data.price}} L.E</span>
+    </div>
+</div>

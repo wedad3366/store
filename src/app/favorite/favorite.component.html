@@ -1,0 +1,33 @@
+<app-header></app-header>
+<section class="mt-5 mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <h2 style="color: #E57C48;" class="border p-3">Favorite Products</h2>
+                <div class="table-responsive" >
+                    <table class="table text-center table-hover align-middle mt-3">
+                        <thead>
+                            <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th></th>
+                            <th></th>
+                            </tr>
+                        </thead>
+                        <tbody  *ngFor="let item of favoriteProducts ; let index = index">
+                            <tr >
+                            <th><img style="width: 100px; height: 100px;" src="{{item.image}}"></th>
+                            <td>{{item.title}}</td>
+                            <td>{{item.price}} L.E</td>
+                            <td><button class="btn" style="background-color: #E57C48; color: white;" routerLink="/details/{{item.id}}">More Details</button></td>
+                            <td><button class="btn btn-dark" (click)="deleteProduct(index)"><i class="fa-regular fa-heart"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

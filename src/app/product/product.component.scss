@@ -1,0 +1,17 @@
+p
+{
+    height: 80px;
+    overflow: hidden;
+}
+.imgCard
+{
+    overflow: hidden;
+}
+.imgCard img 
+{
+    transition: .3s .2s transform;
+}
+.imgCard:hover img
+{
+    transform: scale(2,2);
+}

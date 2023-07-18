@@ -1,0 +1,32 @@
+<app-header></app-header>
+<section class="mt-5 mb-5">
+    <div class="container" *ngIf="!loading">
+        <div class="row align-items-center">
+            <div class="col-md-3 wow slideInLeft ">
+               <img class="w-100" src="{{productById.image}}">
+            </div>
+            <div class="offset-md-1 col-md-7">
+                <h3 class="fw-bold">{{productById.title}}</h3>
+                <h6 style="color: #E57C48;">{{productById.category}}</h6>
+                <div class="d-flex">
+                    <span class="me-3 fw-bold fs-5" style="color: #E57C48;">Price :</span>
+                    <h5 class="text-dark" >{{productById.price}} L.E</h5>
+                </div>
+                <p class="fw-light fs-5">{{productById.description}}</p>
+                <small class="fw-bold" ><span style="color: #E57C48;">The number of pieces </span>: {{numberOfPiece}} pieces</small><br>
+                <small class="fw-bold" ><span style="color: #E57C48;">Rate </span>: {{rate}}</small><br>
+                <button class="btn me-3 mt-3" style="background-color: #E57C48; color: white;" *ngIf="!buttonAdd" (click)="buttonAdd = true">Add to cart</button>
+                <div class="input-group w-25 mb-2 mt-3"  *ngIf="buttonAdd">
+                    <input type="number" class="form-control"  [(ngModel)]="amount">
+                    <button class="btn" style="background-color: #E57C48; color: white;" (click)="addToCart($event)" (click)="buttonAdd = false">Add</button>
+                </div>
+                <button class="btn btn-outline-dark mt-3" (click)="addToFavorite($event)" *ngIf="!buttonAdd2"><i class="fa-regular fa-heart"></i></button>
+                <button class="btn btn-dark mt-3" (click)="deletFromFavorite()"  *ngIf="buttonAdd2"><i class="fa-regular fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="w-100 text-center m-5 p-2" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+</section>
+<app-footer></app-footer>
